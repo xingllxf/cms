@@ -3,6 +3,8 @@ package com.briup.cms.bean;
 
 
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -11,8 +13,11 @@ import java.io.Serializable;
 public class LinK implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @ApiModelProperty(value = "链接id")
     private  int id;
+   @ApiModelProperty(value = "链接名字",required = true)
     private  String name;
+   @ApiModelProperty(value = "链接地址",required = true)
     private  String urll;
 
     public int getId() {
