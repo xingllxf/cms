@@ -1,18 +1,41 @@
 package com.briup.cms.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.io.Serializable;
+import java.util.Date;
+
 @Entity
 @Table(name = "cms_article")
+@ApiModel
 public class Article implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "信息id")
     private int id;
+    @ApiModelProperty(value = "信息作者")
     private String author;
+    @ApiModelProperty(value = "点击次数")
     private int clickTimes;
+    @ApiModelProperty(value = "信息内容")
     private String content;
-    private Data publishDate;
+    @ApiModelProperty(value = "发布时间")
+    private Date publishDate;
+    @ApiModelProperty(value = "信息标题")
+    private String title;
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public int getId() {
         return id;
@@ -46,11 +69,11 @@ public class Article implements Serializable {
         this.content = content;
     }
 
-    public Data getPublishDate() {
+    public Date getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Data publishDate) {
+    public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
     }
 
@@ -62,5 +85,5 @@ public class Article implements Serializable {
         this.title = title;
     }
 
-    private String title;
+
 }

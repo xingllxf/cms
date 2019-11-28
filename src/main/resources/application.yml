@@ -1,4 +1,4 @@
-#·þÎñÆ÷¶Ë¿Ú
+
 server:
   port: 9999
 spring:
@@ -7,4 +7,11 @@ spring:
         url: jdbc:mysql://120.78.171.248:3306/cms?useunicode=true;&serverTimezone=GMT&characterEncoding=utf8
         username: root
         password: root
-
+    jpa:
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      show-sql: true
+      properties:
+        hinernate:
+          format_sql: true

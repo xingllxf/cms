@@ -1,5 +1,7 @@
 package com.briup.cms.bean;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
@@ -7,9 +9,13 @@ import java.io.Serializable;
 public class Category implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+   @ApiModelProperty(value = "栏目id")
+   private int id;
+   @ApiModelProperty(value = "栏目编号",required = true)
     private long code;
+   @ApiModelProperty(value = "栏目名称",required = true)
     private String name;
+
 
     public int getId() {
         return id;

@@ -25,7 +25,7 @@ public class LinkController {
     @PostMapping("/add")
     @ApiOperation("添加链接")
     public Message addLink(LinK link) {
-        linkService.addLink(link);
+        linkService.saveOrUpdateLink(link);
         return MessageUtil.success();
     }
 
